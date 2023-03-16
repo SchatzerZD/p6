@@ -41,4 +41,7 @@ socket.onmessage = (msg) => {
     }
 }
 socket.onerror = (error) => console.error(`Web Socket error`, error)
-socket.onclose = (event) => console.log('Disconnected from WebSocket server')
+socket.onclose = (event) => {
+    console.log('Disconnected from WebSocket server');
+    messages.innerHTML += `<br/> ${messageFromSocket.message[0].name} disconnected`;
+}
